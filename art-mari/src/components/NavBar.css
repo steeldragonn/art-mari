@@ -1,0 +1,34 @@
+.NavBar {
+  margin-left: 20px;
+  /* height: 200px; */
+  padding: 10px;
+  position: fixed;
+  top: 200px;
+}
+
+.NavBar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; // not */
+  /* justify-content: space-around; // not */
+  align-items: flex-start;
+  height: 100%;
+}
+
+.NavBar li {
+  margin: 10px 0;
+  font-size: 16px;
+  margin-top: 0 auto;
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.NavBar a:hover {
+  color: #9c044d;
+}
