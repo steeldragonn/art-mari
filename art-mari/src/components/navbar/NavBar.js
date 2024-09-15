@@ -4,8 +4,9 @@ import "./NavBar.css";
 
 function NavBar() {
   return (
-    <nav className="NavBar">
-      <ul>
+    <nav className="navbar-wrapper">
+      <img src="/лого.jpg" alt="logo" className="logo" />
+      <ul className="listPARENT">
         <li>
           <Link to="/">home</Link>
         </li>
