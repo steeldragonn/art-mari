@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../../CartContext";
+import { useCart } from "./CartContext";
 import "./WorksDetail.css";
 
 function WorksDetail() {
   const { id } = useParams(); // get the work ID from URL parameters
-  const [work, setWork] = useState(null); //  to hold work details
-  const { addToCart } = useCart();
+  const [work, setWork] = useState(null); // to hold work details
+  const { addToCart } = useCart(); //  addToCart from CartContext
 
   useEffect(() => {
     const fetchWork = async () => {
@@ -24,9 +24,9 @@ function WorksDetail() {
     };
 
     fetchWork();
-  }, [id]); // fetch work details when ID changes
+  }, [id]);
 
-  if (!work) return <div>Loading...</div>; //  loading message while fetching
+  if (!work) return <div>Loading...</div>;
 
   return (
     <div className="work-detail">
@@ -37,7 +37,7 @@ function WorksDetail() {
       <p>Material: {work.material}</p>
       <p>Description: {work.description}</p>
       <p>Price: {work.price}</p>
-      <button onClick={() => addToCart(work)}>add to cart</button>
+      <button onClick={() => addToCart(work)}>Add to Cart</button>
     </div>
   );
 }
