@@ -1,0 +1,258 @@
+const mongoose = require("mongoose");
+const Work = require("./models/Works.js");
+
+mongoose
+  .connect("mongodb://localhost:27017/art-mari")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Failed to connect to MongoDB", err));
+
+const worksData = [
+  {
+    imageUrl: "/works/сонце, що падає.jpg",
+    name: "сонце, що падає",
+    size: "20x30",
+    year: 2023,
+    material: "Acrylic",
+    description: "Sunset over the horizon",
+    price: "300$",
+  },
+  {
+    name: "в погоні за дитинством",
+    imageUrl: "/works/в погоні за дитинством.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Oil",
+    description: "Chasing childhood dreams",
+    price: "350$",
+  },
+  {
+    name: "відпливаємо",
+    imageUrl: "/works/відпливаємо.jpg",
+    size: "25x35",
+    year: 2023,
+    material: "Watercolor",
+    description: "Sailing away",
+    price: "280$",
+  },
+  {
+    name: "сонце, що встає",
+    imageUrl: "/works/сонце, що встає.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Acrylic",
+    description: "Sunrise on the beach",
+    price: "320$",
+  },
+  {
+    name: "Де горизонт зникає",
+    imageUrl: "/works/Де горизонт зникає.jpg",
+    size: "40x50",
+    year: 2023,
+    material: "Oil",
+    description: "Where the horizon disappears",
+    price: "400$",
+  },
+  {
+    name: "в хвилях",
+    imageUrl: "/works/в хвилях.jpg",
+    size: "25x25",
+    year: 2023,
+    material: "Watercolor",
+    description: "In the waves",
+    price: "270$",
+  },
+  {
+    name: "в морі",
+    imageUrl: "/works/в морі.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Acrylic",
+    description: "In the sea",
+    price: "350$",
+  },
+  {
+    name: "на березі",
+    imageUrl: "/works/на березі.jpg",
+    size: "35x45",
+    year: 2023,
+    material: "Oil",
+    description: "On the shore",
+    price: "340$",
+  },
+  {
+    name: "феєрверк кольору",
+    imageUrl: "/works/феєрверк кольору.jpg",
+    size: "30x30",
+    year: 2023,
+    material: "Watercolor",
+    description: "Fireworks of color",
+    price: "300$",
+  },
+  {
+    name: "муза",
+    imageUrl: "/works/муза.jpg",
+    size: "20x30",
+    year: 2023,
+    material: "Acrylic",
+    description: "The muse",
+    price: "310$",
+  },
+  {
+    name: "гра флори",
+    imageUrl: "/works/гра флори.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Oil",
+    description: "Floral play",
+    price: "330$",
+  },
+  {
+    name: "дві частини цілого",
+    imageUrl: "/works/дві частини цілого.jpg",
+    size: "25x35",
+    year: 2023,
+    material: "Watercolor",
+    description: "Two parts of a whole",
+    price: "290$",
+  },
+  {
+    name: "очі посеред темряви",
+    imageUrl: "/works/очі посеред темряви.jpg",
+    size: "35x45",
+    year: 2023,
+    material: "Acrylic",
+    description: "Eyes in the darkness",
+    price: "320$",
+  },
+  {
+    name: "розмова",
+    imageUrl: "/works/розмова.jpg",
+    size: "30x30",
+    year: 2023,
+    material: "Oil",
+    description: "A conversation",
+    price: "310$",
+  },
+  {
+    name: "звʼязок",
+    imageUrl: "/works/звʼязок.jpg",
+    size: "25x30",
+    year: 2023,
+    material: "Watercolor",
+    description: "Connection",
+    price: "280$",
+  },
+  {
+    name: "троянди серця",
+    imageUrl: "/works/троянди серця.jpg",
+    size: "40x50",
+    year: 2023,
+    material: "Acrylic",
+    description: "Roses of the heart",
+    price: "370$",
+  },
+  {
+    name: "вогонь троянд",
+    imageUrl: "/works/вогонь троянд.jpg",
+    size: "30x30",
+    year: 2023,
+    material: "Oil",
+    description: "Fire of roses",
+    price: "340$",
+  },
+  {
+    name: "зелений куток",
+    imageUrl: "/works/зелений куток.jpg",
+    size: "35x45",
+    year: 2023,
+    material: "Watercolor",
+    description: "Green corner",
+    price: "300$",
+  },
+  {
+    name: "Золото Торуня",
+    imageUrl: "/works/Золото Торуня.jpg",
+    size: "25x35",
+    year: 2023,
+    material: "Acrylic",
+    description: "Gold of Toruń",
+    price: "330$",
+  },
+  {
+    name: "Торунь і осінь",
+    imageUrl: "/works/Торунь і осінь.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Oil",
+    description: "Toruń and autumn",
+    price: "350$",
+  },
+  {
+    name: "Помаранчевий охоронець",
+    imageUrl: "/works/Помаранчевий охоронець.jpg",
+    size: "20x30",
+    year: 2023,
+    material: "Watercolor",
+    description: "Orange guardian",
+    price: "290$",
+  },
+  {
+    name: "Торунь і вечір",
+    imageUrl: "/works/Торунь і вечір.jpg",
+    size: "35x45",
+    year: 2023,
+    material: "Acrylic",
+    description: "Toruń in the evening",
+    price: "320$",
+  },
+  {
+    name: "Торунь і сяйво свята",
+    imageUrl: "/works/Торунь і сяйво свята.jpg",
+    size: "30x30",
+    year: 2023,
+    material: "Oil",
+    description: "Toruń and the glow of the holiday",
+    price: "340$",
+  },
+  {
+    name: "Торунь і день",
+    imageUrl: "/works/Торунь і день.jpg",
+    size: "25x35",
+    year: 2023,
+    material: "Watercolor",
+    description: "Toruń and the day",
+    price: "310$",
+  },
+  {
+    name: "Торунь",
+    imageUrl: "/works/Торунь.jpg",
+    size: "40x50",
+    year: 2023,
+    material: "Acrylic",
+    description: "Toruń",
+    price: "360$",
+  },
+  {
+    name: "Торунь і сонце",
+    imageUrl: "/works/Торунь і сонце.jpg",
+    size: "30x40",
+    year: 2023,
+    material: "Oil",
+    description: "Toruń and the sun",
+    price: "370$",
+  },
+];
+
+const seedDatabase = async () => {
+  try {
+    await Work.deleteMany({});
+    await Work.insertMany(worksData);
+    console.log("Database seeded");
+  } catch (err) {
+    console.error("Error seeding database:", err);
+  } finally {
+    mongoose.disconnect();
+  }
+};
+
+seedDatabase();
