@@ -8,6 +8,7 @@ import OrderList from "./pages/OrderList.js";
 import WorksDetail from "./WorksDetail.js";
 // import Footer from "./components/footer/Footer.js";
 import "./index.css";
+import EventsPage from "./pages/Events.js";
 
 function App() {
   return (

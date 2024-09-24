@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Works.css";
+import "../index.css";
 
 function Works() {
   const [worksData, setWorksData] = useState([]);

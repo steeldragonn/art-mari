@@ -1,9 +1,11 @@
 import React from "react";
+import "./About.css";
 
 function About() {
   return (
     <div className="about-textContainer1">
-      <p> exciting style. inspiring works</p>
+      <h1>MARINA LAKTIONOVA</h1>
+      <p>artist + enthusiast</p>
     </div>
   );
 }

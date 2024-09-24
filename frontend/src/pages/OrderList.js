@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../CartContext";
 
 function OrderList() {
-  const { getCart } = useCart();
+  const { getCart, removeFromCart } = useCart();
   const cartItems = getCart();
 
   return (
@@ -20,6 +20,9 @@ function OrderList() {
             <p>Material: {item.material}</p>
             <p>Description: {item.description}</p>
             <p>Price: {item.price}</p>
+            <button onClick={() => removeFromCart(index)}>
+              Remove from Cart
+            </button>
           </div>
         ))
       )}

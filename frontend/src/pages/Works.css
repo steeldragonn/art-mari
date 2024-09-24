@@ -1,5 +1,5 @@
 .works-container {
-  padding-left: 60px;
+  padding-left: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   max-width: 1200px;

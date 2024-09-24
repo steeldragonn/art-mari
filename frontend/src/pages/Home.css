@@ -1,6 +1,16 @@
 .home-container {
-  background-color: blue;
-  padding-top: 300px;
   position: relative;
   border: 1px solid red;
+}
+
+.home-container h1 {
+  font-size: 100px;
+  border: 1px solid black;
+}
+
+.home-container p {
+  font-size: 70px;
+  color: rgb(12, 37, 158);
+  align-content: right;
+  border: 1px solid black;
 }

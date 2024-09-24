@@ -1,9 +1,12 @@
 import React from "react";
+import "./Home.css";
 
 function Home() {
   return (
     <div className="home-container">
-      <p>welcome to artMari studio.</p>
+      <p> exciting style. inspiring works</p>
+
+      <h1>inside art studio of MARINA LAKTIONOVA</h1>
     </div>
   );
 }

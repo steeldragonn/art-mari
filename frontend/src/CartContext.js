@@ -1,36 +1,44 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import Cookies from "js-cookie"; // Corrected import for js-cookie
+import Cookies from "js-cookie";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  // Load cart from cookies when the component mounts
   useEffect(() => {
-    const storedCart = Cookies.get("cart"); // Get the cart from cookies
+    const storedCart = Cookies.get("cart");
     if (storedCart) {
-      setCart(JSON.parse(storedCart)); // Parse and set the saved cart
+      setCart(JSON.parse(storedCart)); // parse and set the saved cart
     }
   }, []);
 
-  // to save cart to cookies whenever cart changes
   useEffect(() => {
     if (cart.length > 0) {
-      Cookies.set("cart", JSON.stringify(cart), { expires: 7 }); //  expires in 7 days
+      Cookies.set("cart", JSON.stringify(cart), { expires: 7 }); // expires in 7 days
     } else {
-      Cookies.remove("cart"); // Remto remove the cookini if the cart is empty
+      Cookies.remove("cart"); //  bye to cookini if the cart is empty
     }
   }, [cart]);
 
   const getCart = () => cart;
 
+  //  method to return the cart count
+  const getCartCount = () => cart.length;
+
   const addToCart = (item) => {
     setCart((prevCart) => [...prevCart, item]);
   };
+  const removeFromCart = (indexToRemove) => {
+    setCart((prevCart) =>
+      prevCart.filter((_, index) => index !== indexToRemove)
+    );
+  };
 
   return (
-    <CartContext.Provider value={{ getCart, addToCart }}>
+    <CartContext.Provider
+      value={{ getCart, addToCart, getCartCount, removeFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
