@@ -7,6 +7,7 @@ function OrderList() {
 
   return (
     <div className="order-list">
+      <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
         <p>No items in the cart.</p>
       ) : (
