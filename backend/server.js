@@ -1,3 +1,4 @@
+require("events").EventEmitter.defaultMaxListeners = 30; // THIS
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");

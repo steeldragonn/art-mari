@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../CartContext.js";
 import "./NavBar.css";
 
-import workTest from "../../public/works/one-work-test.jpg";
-
 function NavBar() {
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
@@ -16,6 +14,8 @@ function NavBar() {
   const handleMouseLeaveNavItem = () => {
     setShowPictureOnHover(false);
   };
+
+  const workTest = "/works/one-work-test.jpg";
 
   return (
     <nav className="navbar-wrapper">
@@ -29,7 +29,7 @@ function NavBar() {
           onMouseLeave={handleMouseLeaveNavItem}
           style={{ position: "relative" }}
         >
-          <Link to="/about">01. about Me</Link>
+          <Link to="/about">01. ABOUT ME</Link>
           <img
             src={workTest}
             alt="test-img"
@@ -44,13 +44,19 @@ function NavBar() {
           />
         </li>
         <li>
-          <Link to="/works">02. works</Link>
+          <Link to="/events">02. EVENTS</Link>
+        </li>
+        <li>
+          <Link to="/works">03. WORKS</Link>
         </li>
         <li>
           <Link to="/orderlist">
             {" "}
-            03. cart <span className="cart-count">{cartCount}</span>
+            04. CART <span className="cart-count">{cartCount}</span>
           </Link>
+        </li>
+        <li>
+          <Link to="/contact">05.CONTACT</Link>
         </li>
       </ul>
     </nav>

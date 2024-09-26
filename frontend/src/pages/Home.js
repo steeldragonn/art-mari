@@ -4,9 +4,18 @@ import "./Home.css";
 function Home() {
   return (
     <div className="home-container">
-      <p> exciting style. inspiring works</p>
-
-      <h1>inside art studio of MARINA LAKTIONOVA</h1>
+      <h1>
+        {" "}
+        <span
+          style={{
+            color: "#DAF7A6",
+            fontStyle: "italic",
+            fontSize: "120px",
+          }}
+        >
+          some cool idea representing art studio and works of artist
+        </span>
+      </h1>
     </div>
   );
 }

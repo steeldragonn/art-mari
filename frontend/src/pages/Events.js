@@ -2,7 +2,7 @@ import React from "react";
 import "./Events.css";
 
 function EventsPage() {
-  return <p> exciting style. inspiring works</p>;
+  return <p> last events</p>;
 }
 
 export default EventsPage;

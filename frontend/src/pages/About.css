@@ -1,5 +1,23 @@
 .about-textContainer1 {
-  padding-top: 100px;
-  color: black;
+  font-weight: 100;
+  padding-top: 80px;
+  color: rgb(16, 52, 123);
   font-size: 70px;
+  letter-spacing: 0.15em;
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: flex-start; /* Align items (h1 and p) to the left by default */
+}
+
+.about-textContainer1 h1 {
+  align-self: flex-start; /* Align h1 to the left */
+  text-align: left; /* Ensure text is left-aligned */
+  margin: 0; /* Remove default margin */
+}
+
+.about-textContainer1 p {
+  align-self: flex-end; /* Align p to the right */
+  text-align: right; /* Ensure text is right-aligned */
+  margin: 0; /* Remove default margin */
+  width: 100%; /* Make the paragraph take the full width of the container */
 }
