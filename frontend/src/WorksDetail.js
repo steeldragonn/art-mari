@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./WorksDetail.css";
-import OrderList from "./pages/OrderList";
+import { FaArrowLeft } from "react-icons/fa"; // Import the left arrow icon
 
 function WorksDetail() {
-  const { id } = useParams(); // get the work ID from URL parameters
-  const [work, setWork] = useState(null); // to hold work details
-  const { addToCart } = useCart(); //  addToCart from CartContext
+  const { id } = useParams();
+  const [work, setWork] = useState(null);
+  const { addToCart } = useCart();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchWork = async () => {
@@ -29,10 +30,18 @@ function WorksDetail() {
 
   if (!work) return <div>Loading...</div>;
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="work-detail">
       <div className="work-detail-content">
-        <img className="work-image" src={work.imageUrl} alt={work.name} />
+        <img
+          className="work-image"
+          src={work.imageUrl}
+          alt={work.name}
+          onClick={openModal} // Clicking image opens the modal
+        />
         <div className="work-info">
           <h1>{work.name}</h1>
           <p>
@@ -53,6 +62,22 @@ function WorksDetail() {
           <button onClick={() => addToCart(work)}>Add to Cart</button>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="modal">
+          {/* Arrow to go back to the detail page */}
+          <FaArrowLeft
+            style={{ fontSize: "48px", color: "black" }}
+            className="back-arrow"
+            onClick={closeModal}
+          />
+
+          {/* Modal content */}
+          <div className="modal-content">
+            <img className="modal-image" src={work.imageUrl} alt={work.name} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

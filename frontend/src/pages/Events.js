@@ -2,7 +2,11 @@ import React from "react";
 import "./Events.css";
 
 function EventsPage() {
-  return <p> last events</p>;
+  return (
+    <div className="events-container">
+      <p> last events</p>
+    </div>
+  );
 }
 
 export default EventsPage;

@@ -1,0 +1,7 @@
+.events-container {
+  padding-left: 40px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensure text stays at the top */
+}
