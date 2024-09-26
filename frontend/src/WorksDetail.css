@@ -45,10 +45,10 @@ p {
 /* Modal for Full-Screen Image */
 .modal {
   position: fixed;
-  top: 0;
+  top: 80px; /* Adjust based on your navbar height */
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.9); /* Dark background */
   display: flex;
   justify-content: center;
