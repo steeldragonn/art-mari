@@ -67,7 +67,7 @@ function WorksDetail() {
         <div className="modal">
           {/* Arrow to go back to the detail page */}
           <FaArrowLeft
-            style={{ fontSize: "48px", color: "black" }}
+            style={{ fontSize: "48px", color: "rgb(188, 41, 41)" }}
             className="back-arrow"
             onClick={closeModal}
           />

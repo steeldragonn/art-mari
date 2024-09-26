@@ -17,7 +17,9 @@ function OrderList() {
           <div key={index} className="order-item">
             <div className="order-item-content">
               {/* Link to navigate to the WorksDetail page */}
-              <Link to={`/works/${item.id}`}>
+              <Link to={`/work/${item._id}`}>
+                {" "}
+                {/* Use _id if that's the correct field */}
                 <img
                   className="order-image"
                   src={item.imageUrl}
@@ -27,7 +29,8 @@ function OrderList() {
 
               <div className="order-info">
                 <h2>
-                  <Link to={`/works/${item.id}`}>{item.name}</Link>
+                  <Link to={`/work/${item._id}`}>{item.name}</Link>{" "}
+                  {/* Use _id here too */}
                 </h2>
                 <p>
                   <strong>Size:</strong> {item.size}

@@ -50,13 +50,13 @@ button {
   margin-top: auto; /* Align the button at the bottom */
   padding: 10px 15px;
   background-color: #f1ebe8;
-  color: rgb(25, 3, 66);
+  color: rgb(219, 76, 10);
   border: none;
   cursor: pointer;
   width: 40xp;
 }
 
 button:hover {
-  background-color: #0d1a2e;
+  background-color: #07316f;
   color: white;
 }
