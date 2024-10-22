@@ -11,10 +11,30 @@ router.get("/works", async (req, res) => {
   }
 });
 
+// router.get("/works/:workName", async (req, res) => {
+//   try {
+//     const { workName } = req.params;
+//     console.log("work name:", workName);
+//     const work = await Work.findOne({ url: workName });
+//     console.log("finded work", work);
+
+//     if (!work) return res.status(404).json({ message: "Work not found" });
+//     res.json(work);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
 router.get("/works/:id", async (req, res) => {
   try {
-    const work = await Work.findById(req.params.id);
-    if (!work) return res.status(404).json({ message: "Work not found" });
+    const { id } = req.params;
+    // Validate and convert the id if necessary
+    const work = await Work.findOne({
+      _id: ObjectId.isValid(id) ? new ObjectId(id) : id,
+    });
+
+    if (!work) {
+      return res.status(404).json({ message: "Work not found" });
+    }
     res.json(work);
   } catch (error) {
     res.status(500).json({ message: error.message });

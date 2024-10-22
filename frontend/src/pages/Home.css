@@ -1,8 +1,23 @@
-.home-container {
-  position: relative;
-  /* border: 1px solid black; */
+.home-textContainer {
+  font-weight: 100;
+  padding-top: 80px;
+  color: rgb(16, 52, 123);
+  font-size: 70px;
+  letter-spacing: 0.15em;
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: flex-start; /* Align items (h1 and p) to the left by default */
 }
 
-.home-container h1 {
-  font-size: 100px;
+.home-textContainer h1 {
+  align-self: flex-start; /* Align h1 to the left */
+  text-align: left; /* Ensure text is left-aligned */
+  margin: 0; /* Remove default margin */
+}
+
+.home-textContainer p {
+  align-self: flex-end; /* Align p to the right */
+  text-align: right; /* Ensure text is right-aligned */
+  margin: 0; /* Remove default margin */
+  width: 100%;
 }

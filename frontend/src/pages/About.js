@@ -4,8 +4,7 @@ import "./About.css";
 function About() {
   return (
     <div className="about-textContainer1">
-      <h1>MARINA LAKTIONOVA</h1>
-      <p>artist + enthusiast</p>
+      <h1>mb smth interesting in future</h1>
     </div>
   );
 }

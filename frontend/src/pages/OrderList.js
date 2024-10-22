@@ -16,10 +16,8 @@ function OrderList() {
         cartItems.map((item, index) => (
           <div key={index} className="order-item">
             <div className="order-item-content">
-              {/* Link to navigate to the WorksDetail page */}
               <Link to={`/work/${item._id}`}>
                 {" "}
-                {/* Use _id if that's the correct field */}
                 <img
                   className="order-image"
                   src={item.imageUrl}

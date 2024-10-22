@@ -1,0 +1,32 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  gap: 20px;
+}
+
+.right-column h1 {
+  font-size: 72px;
+  font-weight: italic;
+  margin: 0;
+  text-align: right; /* Aligns "Contact" and "Me" to the right */
+}
+
+.left-column p {
+  /* width: fit-content;  */
+  align-items: left;
+}
+
+.contact-card {
+  /* padding: 20px; */
+  align-content: left;
+}
+
+.contact-card p .boldText {
+  border-radius: 8px;
+  font-size: 20px;
+  align-items: left;
+  font-weight: bold;
+  /* width: fit-content; */
+}

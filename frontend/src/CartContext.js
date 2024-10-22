@@ -15,9 +15,15 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     if (cart.length > 0) {
-      Cookies.set("cart", JSON.stringify(cart), { expires: 7 }); // expires in 7 days
+      // Update to include SameSite and Secure attributes
+      Cookies.set("cart", JSON.stringify(cart), {
+        expires: 30,
+        sameSite: "None", // explicitly setting SameSite=None
+        secure: true, // cookies must be sent over HTTPS
+      });
+      console.log("Cookie set:", Cookies.get("cart"));
     } else {
-      Cookies.remove("cart"); //  bye to cookini if the cart is empty
+      Cookies.remove("cart"); // remove cookini if the cart is empty
     }
   }, [cart]);
 

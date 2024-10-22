@@ -9,6 +9,13 @@
   width: 100%;
 }
 
+.collections-container {
+  grid-column: span 12; /* Займає всю ширину сітки */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три колонки для колекцій */
+  gap: 20px; /* Відстань між колекціями */
+}
+
 .pics-container,
 .pics-container2,
 .pics-container3 {
