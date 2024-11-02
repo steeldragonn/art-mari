@@ -3,11 +3,18 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding: 10%;
 }
 
 .collection {
   cursor: pointer;
   text-align: center;
+  /* color: darkred; */
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
+    "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
 
 .collection-image {

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 99%;
-  background-color: white;
+  background-color: #ededed;
   z-index: 10000; /* higher z index more important elemnt is*/
   display: flex;
   align-items: center;
@@ -19,6 +19,23 @@
   overflow: hidden;
 }
 
+.img-wrapper-link-- {
+  /* background-color: green; */
+  display: inline-block;
+}
+
+.logo {
+  /* height: 100px; */
+  max-height: 100px;
+  min-height: 90px;
+  min-width: 90px;
+  width: 100%;
+  margin-right: 20%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 1;
+}
+
 .cart-count {
   background-color: rgb(188, 41, 41);
   color: white;
@@ -27,11 +44,6 @@
   font-size: 12px;
   margin-left: 5px;
   margin-bottom: 15px;
-}
-
-.logo {
-  height: 70px;
-  margin-right: 20%;
 }
 
 .listPARENT {
@@ -47,12 +59,12 @@
 .listPARENT li {
   margin: 0 15px;
   font-weight: 230;
-  color: rgb(16, 52, 123);
+  /* color: rgb(16, 52, 123); */
 }
 
 .listPARENT a {
   text-decoration: none;
-  color: rgb(55, 21, 156);
+  /* color: rgb(55, 21, 156); */
 }
 
 body {

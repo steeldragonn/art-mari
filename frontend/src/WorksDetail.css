@@ -1,13 +1,13 @@
 h1 {
   margin-bottom: 20px;
   font-weight: 100;
-  color: rgb(16, 52, 123);
+  /* color: rgb(16, 52, 123); */
 }
 
 p {
   margin: 10px 0;
   font-weight: 100;
-  color: rgb(16, 52, 123);
+  /* color: rgb(16, 52, 123); */
 }
 
 .back-arrow {
@@ -60,7 +60,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(175, 166, 166, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;

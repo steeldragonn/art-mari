@@ -34,11 +34,10 @@ function CollectionsDetail() {
 
   return (
     <div className="collection-detail">
-      {/* Navigation back to all collections */}
       <button
         className="back-button"
         onClick={() => navigate("/collections")}
-        style={{ marginBottom: "20px", cursor: "pointer", fontSize: "20px" }} // Adjust size as needed
+        style={{ marginBottom: "20px", cursor: "pointer", fontSize: "20px" }}
       >
         &larr; Back to Collections
       </button>

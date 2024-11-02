@@ -9,10 +9,9 @@ function NavBar() {
 
   return (
     <nav className="navbar-wrapper">
-      <Link to="/">
-        <img src="/лого.jpg" alt="logo" className="logo" />
+      <Link to="/" className="img-wrapper-link--">
+        <img src="/logoPAINT.png" alt="logo" className="logo" />
       </Link>
-
       <ul className="listPARENT">
         <li>
           <Link to="/collections">01. COLLECTIONS</Link>

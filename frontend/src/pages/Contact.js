@@ -28,7 +28,8 @@ const Contact = () => {
           </p>
           <p>
             {" "}
-            <span className="boldText">Studio:</span>{" "}
+            <span className="boldText">Studio:</span>
+            Torun, RAPACKIEGO 6
           </p>
         </div>
       </div>

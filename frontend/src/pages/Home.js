@@ -6,6 +6,8 @@ function Home() {
     <div className="home-textContainer">
       <h1>MARYNA LAKTIONOVA</h1>
       <p>artist + enthusiast</p>
+      <h1>MARYNA LAKTIONOVA</h1>
+      <p>artist + enthusiast</p>
     </div>
   );
 }
