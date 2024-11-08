@@ -12,8 +12,8 @@
 .collections-container {
   grid-column: span 12; /* Займає всю ширину сітки */
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Три колонки для колекцій */
-  gap: 20px; /* Відстань між колекціями */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .pics-container,

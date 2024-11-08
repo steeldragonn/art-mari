@@ -8,7 +8,7 @@ const workSchema = new mongoose.Schema({
   year: { type: Number },
   material: { type: String },
   description: { type: String },
-  price: { type: String },
+  price: { type: Number },
   available: { type: String },
 });
 

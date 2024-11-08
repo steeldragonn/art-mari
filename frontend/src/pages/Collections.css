@@ -1,37 +1,42 @@
 .collections-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
   padding: 10%;
+  text-align: left;
 }
 
-.collection {
+.collections-header {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.collections-description {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+}
+
+.collections-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.collection-card {
   cursor: pointer;
   text-align: center;
-  /* color: darkred; */
-  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
-    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
-    "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  max-width: 200px;
 }
 
 .collection-image {
-  width: 100%;
+  width: 30%;
   height: auto;
-  max-width: 200px;
   border-radius: 8px;
 }
 
-.works-container {
-  display: flex;
-  overflow-x: auto;
+.inspired-by {
+  font-style: italic;
 }
 
-.work-image {
-  cursor: pointer;
-  width: 150px;
-  height: auto;
-  margin: 5px;
+.work-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

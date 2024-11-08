@@ -1,8 +1,96 @@
 .collection-detail {
+  display: flex;
   padding: 10%;
+  position: relative; /*  absolute positioning for child elements */
 }
 
 .back-button {
   color: rgb(16, 52, 123);
   border-color: transparent;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.collection-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.collection-info h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.collection-info p {
+  line-height: 1.5;
+  color: #666;
+}
+
+.works-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 60px; */
+  width: 100%;
+  margin-top: 80px;
+}
+
+.work-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.work-item.even {
+  flex-direction: row;
+}
+
+.work-item.odd {
+  flex-direction: row-reverse;
+}
+
+.work-image {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.work-image:hover {
+  transform: scale(1.05);
+}
+
+.work-info {
+  max-width: 200px;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+
+.info-above {
+  margin-bottom: 10px;
+}
+
+.info-below {
+  margin-top: 10px;
+}
+
+.line {
+  width: 2px;
+  height: 50px;
+  background-color: rgb(178, 34, 34);
+  position: absolute;
+}
+
+.line-below {
+  top: 80px;
+  left: 50%;
+}
+
+.line-above {
+  bottom: 80px;
+  right: 50%;
 }

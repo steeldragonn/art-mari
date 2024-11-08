@@ -13,7 +13,6 @@ function CollectionsDetail() {
         const response = await fetch(
           `http://localhost:5001/api/collections/${id}`
         );
-
         if (response.ok) {
           const data = await response.json();
           setCollection(data);
@@ -28,29 +27,49 @@ function CollectionsDetail() {
     fetchCollection();
   }, [id]);
 
-  console.log("collection,", collection);
-
   if (!collection) return <div>Loading...</div>;
 
   return (
     <div className="collection-detail">
-      <button
-        className="back-button"
-        onClick={() => navigate("/collections")}
-        style={{ marginBottom: "20px", cursor: "pointer", fontSize: "20px" }}
-      >
+      <button className="back-button" onClick={() => navigate("/collections")}>
         &larr; Back to Collections
       </button>
-      <h2>{collection.name}</h2>
+
+      <div className="collection-info">
+        <h2>{collection.name}</h2>
+        <p>{collection.description}</p>
+      </div>
+
+      {/* Works container for staggered layout */}
       <div className="works-container">
-        {collection.works.map((work) => (
-          <img
+        {collection.works.map((work, index) => (
+          <div
             key={work._id}
-            src={work.imageUrl}
-            alt={work.name}
-            onClick={() => navigate(`/work/${work._id}`)}
-            className="work-image"
-          />
+            className={`work-item ${index % 2 === 0 ? "even" : "odd"}`}
+          >
+            <img
+              src={work.imageUrl}
+              alt={work.name}
+              onClick={() => navigate(`/work/${work._id}`)}
+              className="work-image"
+            />
+            <div
+              className={`work-info ${
+                index % 2 === 0 ? "info-below" : "info-above"
+              }`}
+            >
+              <p>
+                <strong>{work.name}</strong>
+              </p>
+              <p>{work.year}</p>
+              <p>{work.material}</p>
+            </div>
+            <div
+              className={`line ${
+                index % 2 === 0 ? "line-below" : "line-above"
+              }`}
+            ></div>
+          </div>
         ))}
       </div>
     </div>

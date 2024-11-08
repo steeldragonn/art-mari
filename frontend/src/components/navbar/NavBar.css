@@ -2,16 +2,25 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 99%;
+  width: 100%;
   background-color: #ededed;
-  z-index: 10000; /* higher z index more important elemnt is*/
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  padding-right: 20px;
-  /* border: 2px solid red; */
-  font-size: 20px;
+  padding: 10px;
+  font-size: 15px;
+  font-style: bold;
+}
+
+/* Hide navbar completely in full-screen mode */
+body.no-navbar .navbar-wrapper {
+  display: none; /* This will hide the navbar and remove its space */
+}
+
+/* Optionally hide the scrollbar when modal is open */
+body.no-navbar {
+  overflow: hidden;
 }
 
 .navbar-wrapper img {

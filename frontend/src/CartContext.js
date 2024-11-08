@@ -15,30 +15,47 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     if (cart.length > 0) {
-      // Update to include SameSite and Secure attributes
       Cookies.set("cart", JSON.stringify(cart), {
         expires: 30,
-        sameSite: "None", // explicitly setting SameSite=None
-        secure: true, // cookies must be sent over HTTPS
+        sameSite: "None",
+        secure: true,
       });
-      console.log("Cookie set:", Cookies.get("cart"));
     } else {
       Cookies.remove("cart"); // remove cookini if the cart is empty
     }
   }, [cart]);
 
   const getCart = () => cart;
-
-  //  method to return the cart count
   const getCartCount = () => cart.length;
 
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prevCart) => {
+      const existingItemIndex = prevCart.findIndex((i) => i._id === item._id);
+      if (existingItemIndex !== -1) {
+        // if the item already exists in the cart - leave quantity
+        const updatedCart = [...prevCart];
+        updatedCart[existingItemIndex].quantity += 1;
+        return updatedCart;
+      }
+      // if it's new item then - add  1
+      return [...prevCart, { ...item, quantity: 1 }];
+    });
   };
-  const removeFromCart = (indexToRemove) => {
-    setCart((prevCart) =>
-      prevCart.filter((_, index) => index !== indexToRemove)
-    );
+
+  const removeFromCart = (itemId) => {
+    setCart((prevCart) => {
+      const updatedCart = prevCart.reduce((acc, item) => {
+        if (item._id === itemId) {
+          if (item.quantity > 1) {
+            acc.push({ ...item, quantity: item.quantity - 1 });
+          }
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, []);
+      return updatedCart;
+    });
   };
 
   return (

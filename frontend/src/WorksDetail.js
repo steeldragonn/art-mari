@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
 import { useCart } from "./CartContext";
 import "./WorksDetail.css";
 import { FaArrowLeft } from "react-icons/fa";
@@ -32,8 +31,15 @@ function WorksDetail() {
 
   if (!work) return <div>Loading...</div>;
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => {
+    document.body.classList.add("no-navbar");
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    document.body.classList.remove("no-navbar");
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="work-detail">
@@ -55,7 +61,7 @@ function WorksDetail() {
           className="work-image"
           src={work.imageUrl}
           alt={work.name}
-          onClick={openModal} //  image opens the modal
+          onClick={openModal}
         />
         <div className="work-info">
           <h1>{work.name}</h1>
