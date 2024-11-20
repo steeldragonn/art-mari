@@ -1,96 +1,56 @@
+/* General container styling */
 .collection-detail {
   display: flex;
-  padding: 10%;
-  position: relative; /*  absolute positioning for child elements */
+  flex-direction: row; /* Info on the left, works on the right */
+  gap: 40px;
+  padding: 5%;
+  padding-top: 50px;
+}
+
+/* Left-side collection info */
+.collection-info {
+  flex: 1; /* Takes up 1/3 of the space */
+  text-align: left;
+}
+
+.collection-name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.collection-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
 }
 
 .back-button {
+  display: inline-block;
   color: rgb(16, 52, 123);
-  border-color: transparent;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  text-decoration: underline;
+  border: none;
+  background: none;
   cursor: pointer;
-  font-size: 20px;
+  margin-bottom: 30px;
 }
 
-.collection-info {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-}
-
-.collection-info h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.collection-info p {
-  line-height: 1.5;
-  color: #666;
-}
-
+/* Horizontal works container */
 .works-container {
+  flex: 3; /* Takes up 2/3 of the space */
+  display: flex;
+  flex-wrap: wrap; /* Wraps items to the next line if needed */
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Work item layout */
+.work-item {
+  width: 200px; /* Consistent width for all works */
+  height: 200px; /* Consistent height for all works */
   display: flex;
   flex-direction: column;
-  /* gap: 60px; */
-  width: 100%;
-  margin-top: 80px;
-}
-
-.work-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.work-item.even {
-  flex-direction: row;
-}
-
-.work-item.odd {
-  flex-direction: row-reverse;
-}
-
-.work-image {
-  width: 200px;
-  height: auto;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.work-image:hover {
-  transform: scale(1.05);
-}
-
-.work-info {
-  max-width: 200px;
-  font-size: 0.9rem;
-  color: #333;
   text-align: center;
-}
-
-.info-above {
-  margin-bottom: 10px;
-}
-
-.info-below {
-  margin-top: 10px;
-}
-
-.line {
-  width: 2px;
-  height: 50px;
-  background-color: rgb(178, 34, 34);
-  position: absolute;
-}
-
-.line-below {
-  top: 80px;
-  left: 50%;
-}
-
-.line-above {
-  bottom: 80px;
-  right: 50%;
+  cursor: pointe;
 }

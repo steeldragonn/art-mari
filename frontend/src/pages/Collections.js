@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Collections.css";
 import axios from "axios";
+
 function Collections() {
   const [collectionsData, setCollectionsData] = useState([]);
   const navigate = useNavigate();
@@ -9,16 +10,10 @@ function Collections() {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/collections", {
-          method: "GET",
-        });
-        console.log("resonse:", response);
-        if (response.ok) {
-          const data = await response.json();
-          setCollectionsData(data);
-        } else {
-          console.error("Failed to fetch collections data");
-        }
+        const response = await axios.get(
+          "http://localhost:5001/api/collections"
+        );
+        setCollectionsData(response.data);
       } catch (error) {
         console.error("Error fetching collections data:", error);
       }
@@ -33,20 +28,24 @@ function Collections() {
 
   return (
     <div className="collections-container">
-      {collectionsData.map((collection) => (
-        <div
-          key={collection._id}
-          className="collection"
-          onClick={() => handleCollectionClick(collection._id)}
-        >
-          <img
-            src={collection.imageUrl}
-            alt={collection.name}
-            className="collection-image"
-          />
-          <h3>{collection.name}</h3>
-        </div>
-      ))}
+      <h1 className="collections-header">Collections</h1>
+      <div className="collections-grid">
+        {collectionsData.map((collection) => (
+          <div
+            key={collection._id}
+            className="collection-card"
+            onClick={() => handleCollectionClick(collection._id)}
+          >
+            <img
+              src={collection.imageUrl}
+              alt={collection.name}
+              className="collection-image"
+            />
+            <h3 className="collection-name">{collection.name}</h3>
+            <p className="collection-price">From £{collection.price}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

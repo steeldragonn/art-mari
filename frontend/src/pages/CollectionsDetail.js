@@ -27,48 +27,36 @@ function CollectionsDetail() {
     fetchCollection();
   }, [id]);
 
+  const Description = (name) => {
+    return `Explore the timeless beauty of the ${name.toLowerCase()} collection. Each piece is a story waiting to be discovered.`;
+  };
+
   if (!collection) return <div>Loading...</div>;
 
   return (
     <div className="collection-detail">
-      <button className="back-button" onClick={() => navigate("/collections")}>
-        &larr; Back to Collections
-      </button>
-
+      {/* Left-side collection info */}
       <div className="collection-info">
-        <h2>{collection.name}</h2>
-        <p>{collection.description}</p>
+        <h1 className="collection-name">{collection.name}</h1>
+        <p className="collection-description">{Description(collection.name)}</p>
+        <button
+          className="back-button"
+          onClick={() => navigate("/collections")}
+        >
+          &larr; Back to Collections
+        </button>
       </div>
 
-      {/* Works container for staggered layout */}
+      {/* Works in horizontal layout */}
       <div className="works-container">
-        {collection.works.map((work, index) => (
+        {collection.works.map((work) => (
           <div
             key={work._id}
-            className={`work-item ${index % 2 === 0 ? "even" : "odd"}`}
+            className="work-item"
+            onClick={() => navigate(`/work/${work._id}`)}
           >
-            <img
-              src={work.imageUrl}
-              alt={work.name}
-              onClick={() => navigate(`/work/${work._id}`)}
-              className="work-image"
-            />
-            <div
-              className={`work-info ${
-                index % 2 === 0 ? "info-below" : "info-above"
-              }`}
-            >
-              <p>
-                <strong>{work.name}</strong>
-              </p>
-              <p>{work.year}</p>
-              <p>{work.material}</p>
-            </div>
-            <div
-              className={`line ${
-                index % 2 === 0 ? "line-below" : "line-above"
-              }`}
-            ></div>
+            <img src={work.imageUrl} alt={work.name} className="work-image" />
+            <div className="work-details"></div>
           </div>
         ))}
       </div>
