@@ -1,3 +1,28 @@
+@font-face {
+  font-family: "Yuji Boku";
+  src: url("/fonts/YujiBoku-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Copperplate";
+  src: url("/frontend/public/fonts/Copperplate.ttc") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Herculanum";
+  src: url("/frontend/public/fonts/Herculanum.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Luminari";
+  src: url("/frontend/public/fonts/Luminari.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .home-textContainer {
   font-weight: 100;
   padding-top: 80px;
@@ -13,6 +38,7 @@
   text-align: left;
   margin: 0;
   width: 100%;
+  font-family: "Copperplate";
 }
 
 .home-textContainer p {

@@ -27,38 +27,52 @@ function CollectionsDetail() {
     fetchCollection();
   }, [id]);
 
-  const Description = (name) => {
-    return `Explore the timeless beauty of the ${name.toLowerCase()} collection. Each piece is a story waiting to be discovered.`;
-  };
-
   if (!collection) return <div>Loading...</div>;
 
   return (
     <div className="collection-detail">
-      {/* Left-side collection info */}
-      <div className="collection-info">
-        <h1 className="collection-name">{collection.name}</h1>
-        <p className="collection-description">{Description(collection.name)}</p>
-        <button
-          className="back-button"
-          onClick={() => navigate("/collections")}
-        >
-          &larr; Back to Collections
-        </button>
+      {/* Top section: Collection image and details */}
+      <div className="top-section">
+        <img
+          src={collection.imageUrl}
+          alt={collection.name}
+          className="collection-image"
+        />
+        <div className="collection-info">
+          <h1 className="collection-name">{collection.name}</h1>
+          <p className="collection-description">
+            Explore the timeless beauty of the {collection.name} collection.
+          </p>
+        </div>
       </div>
 
-      {/* Works in horizontal layout */}
-      <div className="works-container">
-        {collection.works.map((work) => (
-          <div
-            key={work._id}
-            className="work-item"
-            onClick={() => navigate(`/work/${work._id}`)}
-          >
-            <img src={work.imageUrl} alt={work.name} className="work-image" />
-            <div className="work-details"></div>
+      {/* Works section */}
+      <div className="works-section">
+        <div className="works-header">
+          <h2 className="works-title">Works</h2>
+          <div className="pagination-controls">
+            <button className="arrow-button">←</button>
+            <button className="arrow-button">→</button>
           </div>
-        ))}
+        </div>
+
+        {/* Grid of works */}
+        <div className="works-grid">
+          {collection.works.map((work) => (
+            <div
+              key={work._id}
+              className="work-item"
+              onClick={() => navigate(`/work/${work._id}`)}
+            >
+              <div className="work-info">
+                <p className="work-title">{work.name}</p>
+                <p className="work-year">{work.year}</p>
+                <p className="work-description">{work.description}</p>
+              </div>
+              <img src={work.imageUrl} alt={work.name} className="work-image" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

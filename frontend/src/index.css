@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Yuji Boku";
+  src: url("/fonts/YujiBoku-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +19,7 @@ body {
   /* height: 100dvh; */
   width: 100%;
   margin-top: 100px;
-  background-color: #ededed;
+  background-color: #e4e2dd;
   color: #0b0204;
 }
 

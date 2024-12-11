@@ -1,57 +1,74 @@
 /* General container styling */
 .collections-container {
   padding: 5%;
-}
-
-/* Header styling */
-.collections-header {
-  font-size: 50px;
-  margin-bottom: 50px;
-  text-align: left;
-}
-
-/* Grid layout for collections */
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three items per row */
-  gap: 30px; /* Space between items */
-}
-
-/* Card styling */
-.collection-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  /* border: 1px solid #ddd; */
+  gap: 30px; /* Add spacing between major sections */
 }
 
-.collection-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 20px 20px 20px rgba(171, 9, 9, 0.15);
+/* Top section styling */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-/* Collection name styling */
-.collection-name h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
-  text-align: center;
+.collections-header {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
 }
 
-/* Image styling */
-.collection-image {
+.collections-text {
+  width: 40%; /* Width for the text block */
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Add gap between text and images */
+.gap {
+  height: 50px; /* Adjustable gap */
+}
+
+/* Image section */
+.image-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  position: relative;
+  flex: 1; /* Equal width for all images */
+  overflow: hidden; /* Prevent overflow issues */
+}
+
+.image {
   width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  height: auto;
+  object-fit: cover; /* Maintain image proportions */
 }
 
-/* Collection description styling */
-.collection-description {
-  font-size: 1rem;
-  color: #555;
-  text-align: center;
-  margin-top: 10px;
+/* Text overlay styling */
+.image-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .image-text-overlay {
+  opacity: 1; /* Reveal text overlay on hover */
 }

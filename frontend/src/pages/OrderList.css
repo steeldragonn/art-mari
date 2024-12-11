@@ -109,6 +109,7 @@
 
 .item-name {
   flex-grow: 1; /*  name to take available space */
+  font-family: Yuji Boku;
 }
 
 .item-details {

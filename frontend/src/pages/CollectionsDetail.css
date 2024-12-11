@@ -1,15 +1,24 @@
-/* General container styling */
 .collection-detail {
-  display: flex;
-  flex-direction: row; /* Info on the left, works on the right */
-  gap: 40px;
   padding: 5%;
   padding-top: 50px;
+  font-family: Arial, sans-serif;
 }
 
-/* Left-side collection info */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.collection-image {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+}
+
 .collection-info {
-  flex: 1; /* Takes up 1/3 of the space */
+  width: 35%;
   text-align: left;
 }
 
@@ -22,35 +31,88 @@
 .collection-description {
   font-size: 1.2rem;
   color: #555;
+  line-height: 1.6;
+}
+
+.works-section {
+  margin-top: 50px;
+}
+
+.works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.back-button {
-  display: inline-block;
-  color: rgb(16, 52, 123);
-  font-size: 1rem;
-  text-decoration: underline;
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin-bottom: 30px;
+.works-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-/* Horizontal works container */
-.works-container {
-  flex: 3; /* Takes up 2/3 of the space */
+.pagination-controls {
   display: flex;
-  flex-wrap: wrap; /* Wraps items to the next line if needed */
-  gap: 20px;
-  align-items: flex-start;
+  gap: 10px;
 }
 
-/* Work item layout */
+.arrow-button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arrow-button:hover {
+  background-color: #eee;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+  border: 1px solid #ddd;
+}
+
 .work-item {
-  width: 200px; /* Consistent width for all works */
-  height: 200px; /* Consistent height for all works */
+  border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
   text-align: center;
-  cursor: pointe;
+}
+
+.work-info {
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.work-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #bc1515;
+}
+
+.work-year {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.work-description {
+  color: #555;
+  font-size: 0.8rem;
+}
+
+/* Centered image within grid square */
+.work-image {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  margin-top: auto;
+  margin-bottom: auto;
 }

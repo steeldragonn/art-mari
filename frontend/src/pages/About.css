@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Yuji Boku";
+  src: url("/fonts/YujiBoku-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Yuji Boku";
+}
+
 .about-textContainer1 {
   font-weight: 100;
   padding-top: 80px;
