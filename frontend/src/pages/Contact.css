@@ -1,32 +1,137 @@
+/* Main Container */
 .contact-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  gap: 20px;
+  flex-direction: column;
+  gap: 40px;
+  font-family: "Arial", sans-serif;
+  margin-top: 20vh;
+  padding: 5vh;
 }
 
-.right-column h1 {
-  font-size: 72px;
-  font-weight: italic;
+/* Top Row: Headings */
+.top-row {
+  display: flex;
+  justify-content: space-between; /* Align headings on the same level */
+  align-items: center;
+}
+
+.contact-heading,
+.collaboration-heading {
+  font-size: 50px;
+  font-weight: lighter;
   margin: 0;
-  text-align: right; /* Aligns "Contact" and "Me" to the right */
+  color: rgb(188, 41, 41);
+  padding: 5vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bottom Row: Contact Info and Form */
+.bottom-row {
+  display: flex;
+  justify-content: space-between; /* Align left and right columns */
+  align-items: flex-start;
+  font-size: 17px;
+}
+
+.left-column {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #000; /* Default color; can be overridden below */
 }
 
 .left-column p {
-  /* width: fit-content;  */
-  align-items: left;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000; /* Matching color */
+  margin: 0;
 }
 
-.contact-card {
-  /* padding: 20px; */
-  align-content: left;
-}
-
-.contact-card p .boldText {
-  border-radius: 8px;
-  font-size: 20px;
-  align-items: left;
+.left-column p strong {
   font-weight: bold;
-  /* width: fit-content; */
+  color: #a2901d; /* Matching "submit" color */
+}
+
+.right-column {
+  width: 50%;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-gap: 50px;
+  align-items: start;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: #695454;
+  box-sizing: border-box;
+}
+
+/* Remove focus border or box */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none; /* Remove the outline */
+  border-bottom: 1px solid #000; /* Optional: Keep only a bottom border for subtle focus */
+}
+
+/* Textarea-specific styling */
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Submit Button */
+.contact-submit {
+  grid-column: span 2; /* Button spans two columns */
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-submit:hover {
+  color: #a2901d; /* Text changes on hover */
+}
+
+.contact-submit svg {
+  width: 16px;
+  height: 16px;
+  fill: #000;
+}
+
+.contact-submit:hover svg {
+  fill: #a2901d; /* Arrow changes color on hover */
+}
+
+/* Alignment for contact information */
+.contact-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info-group p {
+  color: #3b2b2b; /* Matching "submit" color */
+}
+
+/* Spacing to align with the submit button */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -28,7 +28,6 @@ function Collections() {
 
   return (
     <div className="collections-container">
-      {/* Top Section: Header and Text */}
       <div className="top-section">
         <h1 className="collections-header">Collections</h1>
         <div className="collections-text">
@@ -41,25 +40,22 @@ function Collections() {
         </div>
       </div>
 
-      {/* Gap Between Text and Images */}
       <div className="gap"></div>
 
-      {/* Image Section */}
       <div className="image-section">
         {collectionsData.map((collection) => (
           <div
             key={collection._id}
-            className="image-container"
-            onClick={() => handleCollectionClick(collection._id)} // Handle click
+            className="collection-container"
+            onClick={() => handleCollectionClick(collection._id)}
           >
+            {/* Назва колекції над фото */}
+            <h2 className="collection-name">{collection.name}</h2>
             <img
               src={collection.imageUrl}
               alt={collection.name}
-              className="image"
+              className="collection-image"
             />
-            <div className="image-text-overlay">
-              <h2>{collection.name}</h2>
-            </div>
           </div>
         ))}
       </div>

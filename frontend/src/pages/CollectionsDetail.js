@@ -32,21 +32,20 @@ function CollectionsDetail() {
   return (
     <div className="collection-detail">
       {/* Top section: Collection image and details */}
-      <div className="top-section">
+      {/* <div className="top-section">
         <img
           src={collection.imageUrl}
           alt={collection.name}
           className="collection-image"
-        />
-        <div className="collection-info">
+        /> */}
+      {/* <div className="collection-info">
           <h1 className="collection-name">{collection.name}</h1>
           <p className="collection-description">
             Explore the timeless beauty of the {collection.name} collection.
           </p>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
-      {/* Works section */}
       <div className="works-section">
         <div className="works-header">
           <h2 className="works-title">Works</h2>

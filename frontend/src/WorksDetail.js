@@ -43,31 +43,21 @@ function WorksDetail() {
 
   return (
     <div className="work-detail">
-      <FaArrowLeft
-        className="back-arrow"
-        onClick={() => navigate(-1)}
-        style={{
-          fontSize: "36px",
-          color: "#bc2929",
-          cursor: "pointer",
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-        }}
-      />
+      <FaArrowLeft className="back-arrow" onClick={() => navigate(-1)} />
 
-      <div className="work-detail-content">
-        <img
-          className="work-image"
-          src={work.imageUrl}
-          alt={work.name}
-          onClick={openModal}
-        />
-        <div className="work-info">
-          <h1>{work.name}</h1>
-          <p>
-            <strong>Size:</strong> {work.size}
-          </p>
+      <div className="work-detail-layout">
+        {/* Left Column: Photo */}
+        <div className="work-photo-column">
+          <img
+            className="work-image"
+            src={work.imageUrl}
+            alt={work.name}
+            onClick={openModal}
+          />
+        </div>
+
+        {/* Center Column: Information */}
+        <div className="work-info-column">
           <p>
             <strong>Year:</strong> {work.year}
           </p>
@@ -78,18 +68,24 @@ function WorksDetail() {
             <strong>Description:</strong> {work.description}
           </p>
           <p>
-            <strong>Price:</strong> {work.price}
+            <strong>Price:</strong> {work.price} USD
           </p>
-          <p>
-            <strong>Available:</strong> {work.available}
-          </p>
-          <button onClick={() => addToCart(work)}>Add to Cart</button>
+          <button className="add-to-cart-btn" onClick={() => addToCart(work)}>
+            Add to Cart
+          </button>
+        </div>
+
+        {/* Right Column: Title */}
+        <div className="work-title-column">
+          <h1 className="work-title">{work.name.toUpperCase()}</h1>
         </div>
       </div>
-
       {isModalOpen && (
         <div className="modal">
-          <FaArrowLeft className="back-arrow" onClick={closeModal} />
+          <FaArrowLeft
+            className="back-arrow modal-arrow"
+            onClick={closeModal}
+          />
           <div className="modal-content">
             <img className="modal-image" src={work.imageUrl} alt={work.name} />
           </div>

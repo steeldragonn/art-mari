@@ -10,7 +10,7 @@ function NavBar() {
   return (
     <nav className="navbar-wrapper">
       <Link to="/" className="img-wrapper-link--">
-        <img src="/logoBrown.png" alt="logo" className="logo" />
+        <img src="/beigeLogo.png" alt="logo" className="logo" />
       </Link>
       <ul className="listPARENT">
         <li>
