@@ -48,7 +48,7 @@ body.no-navbar {
 }
 
 .cart-count {
-  background-color: rgb(188, 41, 41);
+  background-color: #801038;
   color: white;
   border-radius: 60%;
   padding: 4px 8px;
@@ -70,12 +70,12 @@ body.no-navbar {
 .listPARENT li {
   margin: 0 15px;
   font-weight: 300;
-  color: rgb(120, 8, 8);
+  color: #801038;
 }
 
 .listPARENT a {
   text-decoration: none;
-  color: rgb(163, 9, 9);
+  color: #801038;
   /* color: rgb(55, 21, 156); */
 }
 
