@@ -1,14 +1,8 @@
-/* Загальний стиль сторінки */
-body.no-navbar {
-  overflow: hidden;
-}
-
 .work-detail {
   padding: 40px;
   font-family: Arial, sans-serif;
 }
 
-/* Стрілка для повернення */
 .back-arrow {
   font-size: 36px;
   color: #bc2929;
@@ -18,16 +12,14 @@ body.no-navbar {
   left: 20px;
 }
 
-/* Макет: три колонки */
 .work-detail-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  height: 100vh; /* Висота на всю сторінку */
+  height: 100vh;
 }
 
-/* Перша колонка: Фото */
 .work-photo-column {
   flex: 1;
   display: flex;
@@ -37,7 +29,7 @@ body.no-navbar {
 
 .work-image {
   max-width: 100%;
-  max-height: 80vh;
+  height: auto;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -47,7 +39,6 @@ body.no-navbar {
   transform: scale(1.05);
 }
 
-/* Друга колонка: Інформація */
 .work-info-column {
   flex: 1;
   display: flex;
@@ -69,29 +60,12 @@ body.no-navbar {
   color: white;
   border: none;
   cursor: pointer;
-  align-self: flex-start;
 }
 
 .add-to-cart-btn:hover {
   background-color: #a51f1f;
 }
 
-/* Третя колонка: Заголовок */
-.work-title-column {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.work-title {
-  font-size: 48px;
-  font-weight: bold;
-  text-align: right;
-}
-
-/* Модальне вікно */
-/* Модальне вікно */
 .modal {
   position: fixed;
   top: 0;
@@ -102,49 +76,12 @@ body.no-navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto; /* Додає скрол для великих зображень */
   z-index: 1000;
-}
-
-.modal-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
 }
 
 .modal-image {
   max-width: 90%;
   max-height: 90%;
-  object-fit: contain; /* Забезпечує коректне масштабування */
-}
-
-.modal-arrow {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 36px;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
-}
-.back-arrow {
-  font-size: 36px;
-  color: rgb(188, 41, 41); /* Яскравий червоний для видимості */
-  cursor: pointer;
-  position: absolute;
-  padding-top: 20vh;
-  top: 20px;
-  left: 20px;
-  z-index: 1000; /* Високий пріоритет для накладання */
-}
-
-.modal-arrow {
-  padding-top: 20vh;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: white; /* Білий колір стрілки у модальному вікні */
-  z-index: 1001;
+  object-fit: contain;
   cursor: pointer;
 }

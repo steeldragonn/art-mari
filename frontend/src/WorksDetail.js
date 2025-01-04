@@ -46,7 +46,6 @@ function WorksDetail() {
       <FaArrowLeft className="back-arrow" onClick={() => navigate(-1)} />
 
       <div className="work-detail-layout">
-        {/* Left Column: Photo */}
         <div className="work-photo-column">
           <img
             className="work-image"
@@ -56,7 +55,6 @@ function WorksDetail() {
           />
         </div>
 
-        {/* Center Column: Information */}
         <div className="work-info-column">
           <p>
             <strong>Year:</strong> {work.year}
@@ -74,21 +72,11 @@ function WorksDetail() {
             Add to Cart
           </button>
         </div>
-
-        {/* Right Column: Title */}
-        <div className="work-title-column">
-          <h1 className="work-title">{work.name.toUpperCase()}</h1>
-        </div>
       </div>
+
       {isModalOpen && (
-        <div className="modal">
-          <FaArrowLeft
-            className="back-arrow modal-arrow"
-            onClick={closeModal}
-          />
-          <div className="modal-content">
-            <img className="modal-image" src={work.imageUrl} alt={work.name} />
-          </div>
+        <div className="modal" onClick={closeModal}>
+          <img className="modal-image" src={work.imageUrl} alt={work.name} />
         </div>
       )}
     </div>

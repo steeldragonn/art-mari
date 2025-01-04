@@ -1,44 +1,87 @@
-.works-container {
-  padding-left: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  column-gap: 10px;
-  width: 100%;
+.works-wrapper {
+  padding: 5%;
+  font-family: Arial, sans-serif;
 }
 
-.collections-container {
-  grid-column: span 12; /* Займає всю ширину сітки */
+.works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.works-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.arrow-button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arrow-button:hover {
+  background-color: #eee;
+}
+
+.arrow-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.works-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.pics-container,
-.pics-container2,
-.pics-container3 {
-  grid-column: span 4;
+.work-item {
+  border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  overflow-y: auto;
-  max-height: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
   box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-/* .text-container {
-  grid-column: span 12;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-} */
+.work-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-p {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.work-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.work-info {
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.work-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #bc1515;
+}
+
+.work-year {
+  color: #777;
+  font-size: 0.9rem;
 }

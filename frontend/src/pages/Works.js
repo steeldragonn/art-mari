@@ -1,96 +1,93 @@
-// import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import "./Works.css";
-// import "../index.css";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Works.css";
 
-// function Works() {
-//   const [worksData, setWorksData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-//   const navigate = useNavigate();
+function Works() {
+  const [worksData, setWorksData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-//   useEffect(() => {
-//     const fetchWorks = async () => {
-//       try {
-//         const response = await fetch("http://localhost:5001/api/works");
-//         if (!response.ok) throw new Error("Network response was not ok");
-//         const data = await response.json();
-//         setWorksData(data);
-//       } catch (error) {
-//         setError("Failed to fetch works data");
-//         console.error("Error fetching works data:", error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
+  const ITEMS_PER_PAGE = 15;
 
-//     fetchWorks();
-//   }, []);
+  useEffect(() => {
+    const fetchWorks = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/works");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        setWorksData(data);
+      } catch (error) {
+        setError("Failed to fetch works data");
+        console.error("Error fetching works data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-//   const handleClick = (id) => {
-//     navigate(`/work/${id}`);
-//   };
+    fetchWorks();
+  }, []);
 
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const scrollY = window.scrollY;
-//       const picsContainers = document.querySelectorAll(
-//         ".pics-container, .pics-container2, .pics-container3"
-//       );
-//       picsContainers.forEach((container) => {
-//         container.style.transform = `translateY(${scrollY * 0.5}px)`;
-//       });
-//     };
+  const handleClick = (id) => {
+    navigate(`/work/${id}`);
+  };
 
-//     window.addEventListener("scroll", handleScroll);
+  const handlePageChange = (direction) => {
+    if (
+      direction === "next" &&
+      currentPage * ITEMS_PER_PAGE < worksData.length
+    ) {
+      setCurrentPage((prev) => prev + 1);
+    } else if (direction === "prev" && currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
 
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, []);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
 
-//   if (loading) return <div>Loading works...</div>;
-//   if (error) return <div>{error}</div>;
+  if (loading) return <div>Loading works...</div>;
+  if (error) return <div>{error}</div>;
 
-//   return (
-//     <div className="works-wrapper">
-//       <div className="works-container">
-//         <div className="pics-container">
-//           {worksData.slice(0, 8).map((work) => (
-//             <img
-//               key={work._id}
-//               src={work.imageUrl}
-//               alt={work.name}
-//               onClick={() => handleClick(work._id)}
-//               style={{ cursor: "pointer" }}
-//             />
-//           ))}
-//         </div>
-//         <div className="pics-container2">
-//           {worksData.slice(8, 17).map((work) => (
-//             <img
-//               key={work._id}
-//               src={work.imageUrl}
-//               alt={work.name}
-//               onClick={() => handleClick(work._id)}
-//               style={{ cursor: "pointer" }}
-//             />
-//           ))}
-//         </div>
-//         <div className="pics-container3">
-//           {worksData.slice(17).map((work) => (
-//             <img
-//               key={work._id}
-//               src={work.imageUrl}
-//               alt={work.name}
-//               onClick={() => handleClick(work._id)}
-//               style={{ cursor: "pointer" }}
-//             />
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+  return (
+    <div className="works-wrapper">
+      <div className="works-header">
+        <h2 className="works-title">Works</h2>
+        <div className="pagination-controls">
+          <button
+            className="arrow-button"
+            onClick={() => handlePageChange("prev")}
+            disabled={currentPage === 1}
+          >
+            ←
+          </button>
+          <button
+            className="arrow-button"
+            onClick={() => handlePageChange("next")}
+            disabled={currentPage * ITEMS_PER_PAGE >= worksData.length}
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <div className="works-grid">
+        {worksData.slice(startIndex, endIndex).map((work) => (
+          <div
+            key={work._id}
+            className="work-item"
+            onClick={() => handleClick(work._id)}
+          >
+            <img src={work.imageUrl} alt={work.name} className="work-image" />
+            <div className="work-info">
+              <p className="work-title">{work.name}</p>
+              <p className="work-year">{work.year}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-// export default Works;
+export default Works;
