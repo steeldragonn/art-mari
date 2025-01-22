@@ -5,8 +5,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
-    message: "",
+    idea: "",
   });
 
   const handleChange = (e) => {
@@ -18,103 +17,95 @@ const Contact = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Reset form fields after submission
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", idea: "" });
   };
 
   return (
     <div className="contact-container">
-      {/* Top Row: Headings */}
-      <div className="top-row">
-        <h1 className="contact-heading">Contact</h1>
-        <h1 className="collaboration-heading">Or collaborate with me</h1>
+      {/* Left Column: Text Section */}
+      <div className="contact-left">
+        <div>
+          <h1 className="contact-title">CON</h1>
+          <h1 className="contact-title">TACT</h1>
+          <h1 className="contact-title">ME</h1>
+        </div>
+        <div className="text-block">
+          <p className="contact-intro">
+            If you want to stay in touch with my work, or would like to create a
+            joint art project - leave your details so we can contact you.
+          </p>
+          <p className="contact-subtext">
+            contact me.
+            <br />
+            create with me.
+            <br />
+            enjoy.
+          </p>
+        </div>
       </div>
 
-      {/* Bottom Row */}
-      <div className="bottom-row">
-        {/* Left Column: Contact Info */}
-        <div className="left-column">
-          {/* Split information into two groups */}
-          <div className="contact-info-group">
-            <div>
-              <p>
-                <strong>Email:</strong> meryy8009@gmail.com
-              </p>
-
-              <p>
-                <strong>Studio:</strong> Torun, RAPACKIEGO 6
-              </p>
-            </div>
-            <div>
-              <p>
-                <strong>Facebook:</strong>{" "}
-                <a
-                  href="https://www.facebook.com/LaktionovaMarina8009"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Profile
-                </a>
-              </p>
-              <p>
-                <strong>Facebook:</strong>{" "}
-                <a
-                  href="https://www.facebook.com/laktionovamaryna"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Works
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Form */}
-        <div className="right-column">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            {/* Name and Email */}
+      {/* Right Column: Form Section */}
+      <div className="contact-right">
+        <form className="contact-form" onSubmit={handleSubmit}>
+          {/* Name Field */}
+          <div className="form-group">
             <input
               type="text"
+              id="name"
               name="name"
-              placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
               required
             />
+            <label
+              htmlFor="name"
+              className={`placeholder ${formData.name ? "hidden" : ""}`}
+            >
+              [ Your Name ]
+            </label>
+          </div>
+
+          {/* Email Field */}
+          <div className="form-group">
             <input
               type="email"
+              id="email"
               name="email"
-              placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
               required
             />
+            <label
+              htmlFor="email"
+              className={`placeholder ${formData.email ? "hidden" : ""}`}
+            >
+              [ Your Email ]
+            </label>
+          </div>
 
-            {/* Subject and Message */}
+          {/* Idea Field */}
+          <div className="form-group">
             <input
               type="text"
-              name="subject"
-              placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
+              id="idea"
+              name="idea"
+              value={formData.idea}
               onChange={handleChange}
               required
-            ></textarea>
+            />
+            <label
+              htmlFor="idea"
+              className={`placeholder ${formData.idea ? "hidden" : ""}`}
+            >
+              [ Your Idea ]
+            </label>
+          </div>
 
-            {/* Submit Button */}
-            <button className="contact-submit" type="submit">
-              Submit
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M13 4l8 8-8 8M5 12h16" />
-              </svg>
-            </button>
-          </form>
-        </div>
+          {/* Submit Button */}
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );

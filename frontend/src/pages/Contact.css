@@ -1,137 +1,118 @@
 /* Main Container */
 .contact-container {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  flex-direction: row;
+  justify-content: space-between; /* Aligns left and right sections horizontally */
+  align-items: center; /* Aligns left and right sections vertically */
   font-family: "Arial", sans-serif;
-  margin-top: 20vh;
-  padding: 5vh;
+  padding: 20px;
+  height: 100vh; /* Sets the height of the container to fill the screen */
+  box-sizing: border-box; /* Includes padding in height calculation */
 }
 
-/* Top Row: Headings */
-.top-row {
-  display: flex;
-  justify-content: space-between; /* Align headings on the same level */
-  align-items: center;
-}
-
-.contact-heading,
-.collaboration-heading {
-  font-size: 50px;
-  font-weight: lighter;
-  margin: 0;
-  color: rgb(188, 41, 41);
-  padding: 5vh;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Bottom Row: Contact Info and Form */
-.bottom-row {
-  display: flex;
-  justify-content: space-between; /* Align left and right columns */
-  align-items: flex-start;
-  font-size: 17px;
-}
-
-.left-column {
-  width: 40%;
+/* Left Section: Text and Titles */
+.contact-left {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  color: #000; /* Default color; can be overridden below */
+  justify-content: flex-start;
+  gap: 20px; /* Adds spacing between text elements */
+  padding-right: 40px;
 }
 
-.left-column p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #000; /* Matching color */
+.contact-title {
+  font-size: 80px;
+  margin: 0; /* Видаляє зовнішні відступи між заголовками */
+  padding: 0; /* Видаляє внутрішні відступи між заголовками */
+  line-height: 1; /* Зменшує міжрядковий інтервал для стиснення тексту */
+}
+.contact-intro {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.contact-subtext {
+  font-size: 14px;
+  line-height: 1.8;
+  text-transform: lowercase;
+}
+
+.contact-intro,
+.contact-subtext {
+  margin-top: 20px; /* Відступ між заголовками і текстом */
+}
+
+.contact-subtext p {
   margin: 0;
 }
 
-.left-column p strong {
-  font-weight: bold;
-  color: #a2901d; /* Matching "submit" color */
+/* Right Section: Form */
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px; /* Adds spacing between form fields */
+  max-width: 500px;
 }
 
-.right-column {
-  width: 50%;
-}
-
+/* Form Styles */
 .contact-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  grid-gap: 50px;
-  align-items: start;
-}
-
-.contact-form input,
-.contact-form textarea {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 10px 5px;
+}
+
+.form-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* Placeholder Text */
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 36px;
+  color: #3f3d3d;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* Input Fields */
+.contact-form input {
+  width: 100%;
   font-size: 16px;
+  padding: 20px 0;
   border: none;
-  background-color: transparent;
-  color: #695454;
-  box-sizing: border-box;
+  border-bottom: 1px solid #3f3d3d;
+  background: transparent;
+  outline: none;
+  color: #191818;
 }
 
-/* Remove focus border or box */
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none; /* Remove the outline */
-  border-bottom: 1px solid #000; /* Optional: Keep only a bottom border for subtle focus */
-}
-
-/* Textarea-specific styling */
-.contact-form textarea {
-  resize: none;
-  height: 120px;
+.contact-form input:focus {
+  border-bottom: 1px solid #d12600;
 }
 
 /* Submit Button */
-.contact-submit {
-  grid-column: span 2; /* Button spans two columns */
-  text-align: left;
+.submit-button {
   font-size: 16px;
   font-weight: bold;
   color: #000;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
 }
 
-.contact-submit:hover {
-  color: #a2901d; /* Text changes on hover */
-}
-
-.contact-submit svg {
-  width: 16px;
-  height: 16px;
-  fill: #000;
-}
-
-.contact-submit:hover svg {
-  fill: #a2901d; /* Arrow changes color on hover */
-}
-
-/* Alignment for contact information */
-.contact-info-group {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-info-group p {
-  color: #3b2b2b; /* Matching "submit" color */
-}
-
-/* Spacing to align with the submit button */
-.left-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.submit-button:hover {
+  color: #d12600;
 }

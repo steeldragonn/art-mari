@@ -3,24 +3,22 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #eeece6;
+  background-color: #f4f4f4;
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   font-size: 20px;
-  font-style: bold;
+
   padding-left: 10px;
   gap: 10px;
 }
 
-/* Hide navbar completely in full-screen mode */
 body.no-navbar .navbar-wrapper {
-  display: none; /* This will hide the navbar and remove its space */
+  display: none;
 }
 
-/* Optionally hide the scrollbar when modal is open */
 body.no-navbar {
   overflow: hidden;
 }
@@ -31,7 +29,6 @@ body.no-navbar {
 }
 
 .img-wrapper-link-- {
-  /* background-color: green; */
   display: inline-block;
 }
 
@@ -62,7 +59,6 @@ body.no-navbar {
   display: flex;
   margin: 0;
   padding: 0;
-  /* justify-content: space-evenly; */
   justify-content: flex-end;
   width: 100%;
 }
@@ -70,13 +66,12 @@ body.no-navbar {
 .listPARENT li {
   margin: 0 15px;
   font-weight: 300;
-  color: #801038;
+  color: #1e1c1c;
 }
 
 .listPARENT a {
   text-decoration: none;
-  color: #801038;
-  /* color: rgb(55, 21, 156); */
+  color: #1e1c1c;
 }
 
 body {
